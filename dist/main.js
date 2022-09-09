@@ -48,5 +48,6 @@ for(i = 0; i < spans.length; i++){
         console.log(splitted)
         currentImageIndex = parseInt(splitted[1]) - 1;
         img.src = images[currentImageIndex];
+        
     })
 }
