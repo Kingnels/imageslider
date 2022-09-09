@@ -12,7 +12,7 @@ const navBtnContainer= document.querySelector("#nav-btns");
 
 for(i = 0; i < images.length; i++){
     let spanElem = document.createElement('span');
-    spanElem.id = "span" + (i + 1);
+    spanElem.id = "span-" + (i + 1);
     navBtnContainer.appendChild(spanElem);
 }
 
@@ -31,3 +31,22 @@ leftNavBtn.addEventListener("click", ()=>{
     }
     img.src = images[currentImageIndex];
 })
+
+
+
+const spans = document.querySelectorAll("#nav-btns span"); 
+//console.log(spans)
+// spans.forEach(x => {
+//     x.addEventListener('click', ()=>{
+//         alert("Hi")
+//     })
+// })
+
+for(i = 0; i < spans.length; i++){
+    spans[i].addEventListener('click', (e)=>{
+        let splitted = e.currentTarget.id.split('-');
+        console.log(splitted)
+        currentImageIndex = parseInt(splitted[1]) - 1;
+        img.src = images[currentImageIndex];
+    })
+}
